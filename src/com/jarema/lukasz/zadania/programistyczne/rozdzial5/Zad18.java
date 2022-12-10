@@ -1,6 +1,7 @@
 package com.jarema.lukasz.zadania.programistyczne.rozdzial5;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Badanie postrzegania pozazmysłowego.
@@ -17,9 +18,23 @@ import java.util.Random;
 
 public class Zad18 {
     public static void main(String[] args) {
-        displayComputerChoice();
+        int theSameChoice = 0;
+
+        for (int i = 0; i < 10; i++) {
+            String user = userChoice();
+            String computer = computerColorChoice();
+            displayComputerChoice(computer);
+            if (user.equals(computer)) {
+                theSameChoice++;
+            }
+        }
+        System.out.println("Dokonałeś tego samego wyboru co komputer: " + theSameChoice + " razy.");
     }
 
+    /**
+     * Metoda computerColorChoice generuje liczbę pseudolosą, a następnie na jej podstawie przypisuje kolor.
+     * @return zwraca kolor wylosowany przez komputer.
+     */
     public static String computerColorChoice() {
         Random random = new Random();
         int num = random.nextInt(4);
@@ -38,7 +53,23 @@ public class Zad18 {
         return output;
     }
 
-    public static void displayComputerChoice() {
-        System.out.println(computerColorChoice());
+    /**
+     * Metoda displayComputerChoice wyświetla na konsoli wylosowany kolor przez komputer, który wcześniej został
+     * przypisany do zmiennej typu String.
+     * @param color Przyjmuje wcześniej wylosowany kolor przez komputer jako zmienną typu String.
+     */
+    public static void displayComputerChoice(String color) {
+        System.out.println(color);
+    }
+
+    public static String userChoice() {
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+        do {
+            System.out.print("Podaj kolor (Czerwony, Zielony, Niebieski, Pomarańczowy, Żółty: ");
+            input = scanner.nextLine();
+        } while (!(input.equals("Czerwony") || input.equals("Zielony") || input.equals("Niebieski")
+                || input.equals("Pomarańczowy") || input.equals("Żółty")));
+        return input;
     }
 }
