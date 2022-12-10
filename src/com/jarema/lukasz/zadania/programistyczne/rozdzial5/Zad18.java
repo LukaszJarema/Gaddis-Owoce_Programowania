@@ -1,5 +1,7 @@
 package com.jarema.lukasz.zadania.programistyczne.rozdzial5;
 
+import java.util.Random;
+
 /**
  * Badanie postrzegania pozazmysłowego.
  * Napisz program, który bada Twoje zdolności pozazmysłowe. Program powinien losowo wybierać jedną z poniższych nazw
@@ -15,6 +17,28 @@ package com.jarema.lukasz.zadania.programistyczne.rozdzial5;
 
 public class Zad18 {
     public static void main(String[] args) {
+        displayComputerChoice();
+    }
 
+    public static String computerColorChoice() {
+        Random random = new Random();
+        int num = random.nextInt(4);
+        String output = "";
+        if (num == 0) {
+            output = "Czerwony";
+        } else if (num == 1) {
+            output = "Zielony";
+        } else if (num == 2) {
+            output = "Niebieski";
+        } else if (num == 3) {
+            output = "Pomarańczowy";
+        } else {
+            output = "Żółty";
+        }
+        return output;
+    }
+
+    public static void displayComputerChoice() {
+        System.out.println(computerColorChoice());
     }
 }
