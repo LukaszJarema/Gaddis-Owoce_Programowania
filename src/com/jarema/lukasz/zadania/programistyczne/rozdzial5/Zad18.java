@@ -37,7 +37,7 @@ public class Zad18 {
      */
     public static String computerColorChoice() {
         Random random = new Random();
-        int num = random.nextInt(4);
+        int num = random.nextInt(5);
         String output = "";
         if (num == 0) {
             output = "Czerwony";
