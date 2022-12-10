@@ -66,7 +66,7 @@ public class Zad18 {
         Scanner scanner = new Scanner(System.in);
         String input = "";
         do {
-            System.out.print("Podaj kolor (Czerwony, Zielony, Niebieski, Pomarańczowy, Żółty: ");
+            System.out.print("Podaj kolor (Czerwony, Zielony, Niebieski, Pomarańczowy, Żółty): ");
             input = scanner.nextLine();
         } while (!(input.equals("Czerwony") || input.equals("Zielony") || input.equals("Niebieski")
                 || input.equals("Pomarańczowy") || input.equals("Żółty")));

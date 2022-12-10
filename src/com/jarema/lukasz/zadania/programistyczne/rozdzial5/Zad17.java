@@ -23,17 +23,28 @@ import java.util.Scanner;
 
 public class Zad17 {
     public static void main(String[] args) {
+        String computer, user;
+            do {
+                computer = computerChoiceItem();
+                user = userChoice();
+                displayComputerChoice(computer);
+                whoWin(user, computer);
+            } while (row(user, computer));
+    }
 
-        String output = new String();
-
-        while (output.equals(computerChoiceItem())) {
+    /**
+     * Metoda userChoice pobiera od użytkownika jego wybór (Kamień, Papier, Nożyce) następnie wprowadzone słowo jest
+     * sprawdzane i jeżeli wpisana wartość jest błędna proces ten powtarza się.
+     * @return zwraca String z wyborem użytkownika
+     */
+    public static String userChoice() {
+        String input ="";
+        do {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Podaj swój wybór (Kamień, Papier, Nożyce): ");
-            output = scanner.nextLine();
-            computerChoiceItem();
-            displayComputerChoice();
-            whoWin(output);
-        }
+            input = scanner.nextLine();
+        } while (!(input.equals("Kamień") || input.equals("Papier") || input.equals("Nożyce")));
+        return input;
     }
 
     /**
@@ -59,22 +70,40 @@ public class Zad17 {
      * Metoda displayComputerChoice wykorzystuje metodę computerChoiceItem i wyświetla na ekranie informację co wylosował
      * komputer
      */
-    public static void displayComputerChoice() {
-        String output = "Komputer wybrał: " + computerChoiceItem();
+    public static void displayComputerChoice(String computerChoice) {
+        String output = "Komputer wybrał: " + computerChoice;
         System.out.println(output);
     }
 
-    public static String whoWin(String userChoice) {
+    /**
+     * Metoda row sprawdza czy zaistniał remis w grze tj. obie strony wybrały tę samą wartość.
+     * @param userChoice argument podany przez użytkownika
+     * @param computerChoice argument podany przez komputer
+     * @return zwraca true jeśli oba argumenty są takie same, zwraca false jeśli podane argumenty różnią się.
+     */
+    public static boolean row(String userChoice, String computerChoice) {
+        if (userChoice.equals(computerChoice)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Metoda whoWin sprawdza kto wygrał rywalizację.
+     * @param userChoice wybór użytkownika
+     * @param computerChoice wybór komputera
+     */
+    public static void whoWin(String userChoice, String computerChoice) {
         String output = "";
-        if (computerChoiceItem().equals(userChoice)) {
-            output = "Remis";
-        } else if (computerChoiceItem().equals("Kamień") && userChoice.equals("Nożyce") ||
-        computerChoiceItem().equals("Nożyce") && userChoice.equals("Papier") ||
-        computerChoiceItem().equals("Papier") && userChoice.equals("Kamień")) {
+        if (computerChoice.equals("Kamień") && userChoice.equals("Nożyce") ||
+        computerChoice.equals("Nożyce") && userChoice.equals("Papier") ||
+        computerChoice.equals("Papier") && userChoice.equals("Kamień")) {
             output = "Komputer wygrał";
+        } else if (computerChoice.equals(userChoice)) {
+            output = "Remis";
         } else {
             output = "Użytkownik wygrał";
         }
-        return output;
+        System.out.println(output);
     }
 }
