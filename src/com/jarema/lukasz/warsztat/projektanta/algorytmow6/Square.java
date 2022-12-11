@@ -16,9 +16,11 @@ package com.jarema.lukasz.warsztat.projektanta.algorytmow6;
  */
 public class Square {
     private double sideLength;
+
     private double getArea() {
         return sideLength + sideLength;
     }
+
     public double getSideLength() {
         return sideLength;
     }
