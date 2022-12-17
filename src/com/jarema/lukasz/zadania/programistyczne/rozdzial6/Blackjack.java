@@ -117,6 +117,10 @@ public class Blackjack {
             System.out.println("Użytkownik wygrał");
         } else if (computerPoints > userPoints && computerPoints <= 21) {
             System.out.println("Komputer wygrał");
+        } else if (userPoints > computerPoints && userPoints > 21 && computerPoints <= 21) {
+            System.out.println("Komputer wygrał");
+        } else if (computerPoints > userPoints && computerPoints > 21 && userPoints <= 21) {
+            System.out.println("Użytkowik wygrał");
         } else {
             System.out.println("Remis");
         }
