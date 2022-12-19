@@ -83,6 +83,11 @@ public class SavingsAccount {
         accountBalance += addingDeposit;
     }
 
+    public double addToDeposite(double ammount) {
+        double addtoDeposite = ammount;
+        return addtoDeposite;
+    }
+
     /**
      * Metoda substractionDepositedAmmount obiektu typu SavingsAccount odejmuje wartość substractionDeposit od pola
      * accountBalance

@@ -21,7 +21,6 @@ public class TestSavingsAccount {
             System.out.print("Ile pieniędzy wpłaciłeś w miesiącu numer " + i + " na konto: ");
             double add = scanner.nextDouble();
             addDeposite += add;
-            savingsAccount.addingDepositedAmmount(add);
             System.out.print("Ile pieniędzy wypłaciłeś w miesiącu numer " + i + " z konta: ");
             double substract = scanner.nextDouble();
             substractDeposite += substract;
