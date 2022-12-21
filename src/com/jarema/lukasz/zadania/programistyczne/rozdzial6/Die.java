@@ -35,4 +35,14 @@ public class Die {
     public void setValue(Die die) {
         value = die.roll();
     }
+
+    public void whoWin(int computerPoints, int userPoits) {
+        if (computerPoints > userPoits) {
+            System.out.println("Komputer wygrał.");
+        } else if (userPoits > computerPoints) {
+            System.out.println("Użytkownik wygrał.");
+        } else {
+            System.out.println("Remis");
+        }
+    }
 }
