@@ -116,4 +116,23 @@ public class Procedure {
     public void setPriceOfProcedure(double priceOfProcedure) {
         this.priceOfProcedure = priceOfProcedure;
     }
+
+    /**
+     * Metoda displayInformationAboutProcedure wyświetla w konsoli informacje z pól obiektu typu Procedure
+     * @param numberOfProcedure numer badania
+     * @param nameOfProcedure wartość pola nameOfProcedure
+     * @param dateOfProcedure wartość pola dateOfProcedure
+     * @param nameOfDoctor wartość pola nameOfDoctor
+     * @param surnameOfDoctor wartość pola surnamOfDoctor
+     * @param priceOfProcedure wartość pola priceOfProcedure
+     */
+    public void displayInformationAboutProcedure(int numberOfProcedure, String nameOfProcedure,
+                                                 LocalDate dateOfProcedure, String nameOfDoctor,
+                                                 String surnameOfDoctor, double priceOfProcedure) {
+        System.out.println("Badanie numer " + numberOfProcedure);
+        System.out.println("Nazwa: " + nameOfProcedure);
+        System.out.println("Data: " + dateOfProcedure);
+        System.out.println("Lekarz: dr " + nameOfDoctor + " " + surnameOfDoctor);
+        System.out.printf("Opłata: %.2f", priceOfProcedure);
+    }
 }
