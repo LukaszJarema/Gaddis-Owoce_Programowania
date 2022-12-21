@@ -27,9 +27,6 @@ import java.util.Scanner;
  */
 public class TestFilesSavingsAccount {
     public static void main(String[] args) throws FileNotFoundException {
-        double addDeposit = 0.0,
-                substractDeposit = 0.0,
-                monthInterestRate = 0.0;
         Scanner scanner = new Scanner(System.in);
         File deposits = new File("Deposits.txt");
         File withdrawals = new File("Withdrawals.txt");
@@ -40,21 +37,20 @@ public class TestFilesSavingsAccount {
         savingsAccount.setAnnualInterestRate(scanner.nextDouble());
         savingsAccount.setAccountBalance(500.00);
 
-        while (depositsFile.hasNext() && withdrawalsFile.hasNext()) {
+        while (depositsFile.hasNext()) {
             String depositsFileLine = depositsFile.nextLine();
-            double add = Double.parseDouble(depositsFileLine);
-            addDeposit += add;
-            savingsAccount.addingDepositedAmmount(add);
-            String withdrawalsFileLine = withdrawalsFile.nextLine();
-            double substract = Double.parseDouble(withdrawalsFileLine);
-            substractDeposit += substract;
-            savingsAccount.substractionDepositedAmmount(substract);
-            savingsAccount.addMonthInterestRate(savingsAccount.getAnnualInterestRate());
-            monthInterestRate += savingsAccount.monthInterestRate(savingsAccount.getAnnualInterestRate());
+            savingsAccount.addingDepositedAmmount(Double.parseDouble(depositsFileLine));
         }
 
+        while (withdrawalsFile.hasNext()) {
+            String withdrawalsFileLine = withdrawalsFile.nextLine();
+            savingsAccount.substractionDepositedAmmount(Double.parseDouble(withdrawalsFileLine));
+        }
+
+        savingsAccount.addMonthInterestRate(savingsAccount.getAnnualInterestRate());
         System.out.printf("Stan końcowy konta wynosi: %.2f", savingsAccount.getAccountBalance());
         System.out.println();
-        System.out.printf("Otrzymane odsetki: %.2f", monthInterestRate);
+        System.out.printf("Otrzymane odsetki: %.2f",
+                savingsAccount.monthInterestRate(savingsAccount.getAnnualInterestRate()));
     }
 }
