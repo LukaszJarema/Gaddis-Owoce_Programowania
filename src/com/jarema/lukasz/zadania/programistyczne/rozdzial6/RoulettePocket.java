@@ -15,4 +15,69 @@ package com.jarema.lukasz.zadania.programistyczne.rozdzial6;
  * wprowadzi numer z przedziału od 0 do 36.
  */
 public class RoulettePocket {
+    private int fieldNumber;
+
+    /**
+     * Konstruktor bezargumentowy obiektu typu RoulettePocket
+     */
+    public RoulettePocket() {
+
+    }
+
+    /**
+     * Konstruktor obiektu typu RoulettePocket przyjmujący jako argument wartość pola fieldNumber
+     * @param fieldNumber wartość pola fieldNumber
+     */
+    public RoulettePocket(int fieldNumber) {
+        this.fieldNumber = fieldNumber;
+    }
+
+    //Akcesor
+
+    /**
+     * Metoda getFieldNumber obiektu typu RoulettePocket zwraca wartość pola fieldNumber
+     * @return wartość pola fieldNumber
+     */
+    public int getFieldNumber() {
+        return fieldNumber;
+    }
+
+    //Mutator
+
+    /**
+     * Metoda setFieldNumber obiektu typu RoulettePocket zapisuje wartość w polu fieldNumber
+     * @param fieldNumber wartość pola fieldNumber
+     */
+    public void setFieldNumber(int fieldNumber) {
+        this.fieldNumber = fieldNumber;
+    }
+
+    /**
+     * Metoda getPocetColor obiektu typu RoulettePockcet wyświetla kolor pola ruletki na podstawie pola fieldNumber
+     * @param fieldNumber wartość pola fieldNumber
+     * @return
+     */
+    public String getPocketColor(int fieldNumber) {
+        if (fieldNumber == 0) {
+            return "zielone";
+        } else if (fieldNumber >= 1 && fieldNumber <= 10 && fieldNumber % 2 == 0) {
+            return "czarne";
+        } else if (fieldNumber >= 1 && fieldNumber <= 10 && fieldNumber % 2 == 1) {
+            return "czerwone";
+        } else if (fieldNumber >= 11 && fieldNumber <= 18 && fieldNumber % 2 == 0) {
+            return "czerwone";
+        } else if (fieldNumber >= 11 && fieldNumber <= 18 && fieldNumber % 2 == 1) {
+            return "czarne";
+        } else if (fieldNumber >= 19 && fieldNumber <= 28 && fieldNumber % 2 == 0) {
+            return "czarne";
+        } else if (fieldNumber >= 19 && fieldNumber <= 28 && fieldNumber % 2 == 1) {
+            return "czerwone";
+        } else if (fieldNumber >= 29 && fieldNumber <= 36 && fieldNumber % 2 == 0) {
+            return "czerwone";
+        } else if (fieldNumber >= 29 && fieldNumber <= 36 && fieldNumber % 2 == 1) {
+            return "czarne";
+        } else {
+            return "BŁĘDNY NUMER POLA\n";
+        }
+    }
 }
