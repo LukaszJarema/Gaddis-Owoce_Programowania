@@ -13,7 +13,7 @@ package com.jarema.lukasz.zadania.programistyczne.rozdzial6;
 
 public class TossingCoinsForADollar {
     public static void main(String[] args) {
-        double ammountWon = 0.0;
+        double ammountWon = 0.00;
         Coin coinFive = new Coin();
         Coin coinTen = new Coin();
         Coin coinTwenty = new Coin();
