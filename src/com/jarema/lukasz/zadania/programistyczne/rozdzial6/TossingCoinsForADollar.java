@@ -13,7 +13,7 @@ package com.jarema.lukasz.zadania.programistyczne.rozdzial6;
 
 public class TossingCoinsForADollar {
     public static void main(String[] args) {
-        double ammountWon = 0.00;
+        int ammountWon = 0;
         Coin coinFive = new Coin();
         Coin coinTen = new Coin();
         Coin coinTwenty = new Coin();
@@ -23,17 +23,17 @@ public class TossingCoinsForADollar {
             coinTen.toss();
             coinTwenty.toss();
             if (coinFive.getSideUp().equals("orzeł")) {
-                ammountWon += 0.05;
+                ammountWon += 5;
             }
             if (coinTen.getSideUp().equals("orzeł")) {
-                ammountWon += 0.10;
+                ammountWon += 10;
             }
             if (coinTwenty.getSideUp().equals("orzeł")) {
-                ammountWon += 0.20;
+                ammountWon += 20;
             }
-        } while (ammountWon <= 1.0);
+        } while (ammountWon <= 100);
 
-        if (ammountWon == 1.0) {
+        if (ammountWon == 100) {
             System.out.println("Wygrałeś");
         } else {
             System.out.println("Przegrałeś");
