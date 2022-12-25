@@ -77,7 +77,7 @@ public class RainFall {
     /**
      * Metoda monthWithMaxRainFall obiektu typu RainFall zwraca numer obiektu z pola monthlyRainFall z największą
      * wartością
-     * @return numer obiektu z pola monthlyRainFall z największą wartością
+     * @return numer obiektu z pola monthlyRainFall z największą wartością + 1
      */
     public int monthWithMaxRainFall() {
         int monthWithMaxRainFall = 0;
@@ -85,13 +85,13 @@ public class RainFall {
             if (monthlyRainFall[i] > monthWithMaxRainFall)
                 monthWithMaxRainFall = i;
         }
-        return monthWithMaxRainFall;
+        return monthWithMaxRainFall + 1;
     }
 
     /**
      * Metoda monthWithMinRainFall obiektu typu RainFall zwraca numer obiektu z pola monthlyRainFall z najemniejszą
      * wartością
-     * @return numer obiektu z pola monthlyRainFall z najmniejszą wartością
+     * @return numer obiektu z pola monthlyRainFall z najmniejszą wartością + 1
      */
     public int monthWithMinRainFall() {
         int monthWithMinRainFall = 0;
@@ -99,6 +99,6 @@ public class RainFall {
             if (monthlyRainFall[i] < monthWithMinRainFall)
                 monthWithMinRainFall = i;
         }
-        return monthWithMinRainFall;
+        return monthWithMinRainFall + 1;
     }
 }
