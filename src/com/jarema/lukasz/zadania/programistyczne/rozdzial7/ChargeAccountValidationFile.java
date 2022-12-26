@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 
 public class ChargeAccountValidationFile {
-    private ArrayList<Integer> accountsNumber = new ArrayList<>();
+    private final ArrayList<Integer> accountsNumber = new ArrayList<>();
 
     /**
      * Konstruktor bezargumentowy obiektu typu ChargeAccountValidationFile
