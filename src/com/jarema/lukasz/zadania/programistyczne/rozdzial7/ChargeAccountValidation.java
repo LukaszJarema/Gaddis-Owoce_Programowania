@@ -27,7 +27,6 @@ public class ChargeAccountValidation {
     /**
      * Metoda isAccountExist oiektu typu ChargeAccountValidation sprawdza czy wprowadzony jako argument numer istnieje
      * w tablicy pola accountsNumber
-     *
      * @param num sprawdzany numer konta
      * @return true jeśli numer wprowadzony jako argument istnieje w tablicy pola accountsNumber w przeciwnym razie
      * false
@@ -48,7 +47,6 @@ public class ChargeAccountValidation {
      * Metoda displayMessageIsAccountExist obiektu typu ChargeAccountValidation przyjmuje jako argument liczbę
      * przedstawiającą numer konta i jeśli ten numer istnieje w tablicy pola accountsNumber wyświetla komunikat, że
      * konto istnieje, w przeciwnym wypadku, że konto nie istnieje
-     *
      * @param num numer konta
      */
     public void displayMessageIsAccountExist(int num) {
