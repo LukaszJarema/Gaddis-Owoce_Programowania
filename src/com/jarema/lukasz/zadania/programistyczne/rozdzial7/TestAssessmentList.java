@@ -12,6 +12,18 @@ public class TestAssessmentList {
             assessmentList.setSurnames(i, scanner.nextLine());
         }
 
+        for (int i = 0; i < assessmentList.getSurnamesLength(); i++) {
+            for (int j = 0; j < assessmentList.getSurnamesLength(); j++) {
+                String surname = assessmentList.getSurname(i);
+                int index = assessmentList.getIndexFromSurnames(surname);
+                double score = -1.0;
+                do {
+                    System.out.print("Podaj liczbę punktów z testu numer "  + (j + 1) + ": ");
+                    assessmentList.setScores(surname);
+                } while (!(score < 0.0 || score >= 100.0));
+            }
+        }
+
 
     }
 }
