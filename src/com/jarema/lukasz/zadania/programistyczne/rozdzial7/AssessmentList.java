@@ -1,5 +1,7 @@
 package com.jarema.lukasz.zadania.programistyczne.rozdzial7;
 
+import java.util.Scanner;
+
 /**
  * Lista ocen.
  * Wykladowca ma pięciu studentów, którzy napisali cztery testy. Używa on następującej skali do wystawiania ocen
@@ -72,6 +74,7 @@ public class AssessmentList {
      * @param surname nazwisko studenta
      */
     public void setScores(String surname) {
+        Scanner scanner = new Scanner(System.in);
         int index = getIndexFromSurnames(surname);
         double score = 0.0;
         if (index == -1) {
@@ -80,6 +83,8 @@ public class AssessmentList {
             for (int i = 0; i < scores[index].length; i++) {
                 do {
                     System.out.print("Wprowadź liczbę punktów z testu numer " + (i + 1) + ": ");
+                    score = scanner.nextDouble();
+                    scores[index][i] = score;
                 } while (score < 0.0 || score > 100.00);
             }
         }
