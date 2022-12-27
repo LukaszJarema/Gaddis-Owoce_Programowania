@@ -50,6 +50,14 @@ public class MagicBall {
     }
 
     /**
+     * Metoda setFileName oiektu typu MagicBall zapisuje wartość w polu fileName
+     * @param fileName wartość pola fileName
+     */
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    /**
      * Metoda getFileName zwraca wartość pola fileName
      * @return wartość pola fileName
      */
