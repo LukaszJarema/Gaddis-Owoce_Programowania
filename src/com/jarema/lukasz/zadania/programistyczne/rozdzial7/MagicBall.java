@@ -16,7 +16,7 @@ import java.util.Scanner;
  */
 
 public class MagicBall {
-    private ArrayList<String> answers = new ArrayList<>();
+    private final ArrayList<String> answers = new ArrayList<>();
     private String fileName;
 
     /**
