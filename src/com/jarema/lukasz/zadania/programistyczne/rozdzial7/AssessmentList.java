@@ -22,9 +22,9 @@ import java.util.Scanner;
  */
 
 public class AssessmentList {
-    private final String [] surnames = new String[5];
-    private final int [] grades = new int[4];
-    private double [] [] scores = new double[5][4];
+    private final String[] surnames = new String[5];
+    private final int[][] grades = new int[5][4];
+    private double[][] scores = new double[5][4];
 
     /**
      * Konstruktor bezargumentowy obiektu typu AssessmentList
@@ -34,9 +34,26 @@ public class AssessmentList {
     }
 
     /**
+     * Metoda getSurnamsLength obiektu typu AssessmentList zwraca długość tablicy surnames
+     * @return długość tablicy z pola surnames
+     */
+    public int getSurnamesLength() {
+        return surnames.length;
+    }
+
+    public int getColumsFromScores() {
+        return scores[5].length;
+    }
+
+    public String getSurname(int index) {
+        return surnames[index];
+    }
+
+    /**
      * Metoda setSurnames obiektu typu AssessmentList przyjmuje jako argument indeks tablicy i nazwisko studenta i
      * wprowadza te dane w tablicę pola surnames
-     * @param num indeks tablicy surnames
+     *
+     * @param num     indeks tablicy surnames
      * @param surname nazwisko tablicy wpisane do tablicy surnames
      */
     public void setSurnames(int num, String surname) {
@@ -46,6 +63,7 @@ public class AssessmentList {
     /**
      * Metoda getIndexFromSurnames przyjmuje jako argument nazwisko studenta i zwraca index, pod którym to nazwisko
      * znajduje się w tablicy surnames
+     *
      * @param surname nazwisko studenta
      * @return index z tablicy surnames lub -1 jeśli nazwiska nie ma w tablicy
      */
@@ -59,18 +77,35 @@ public class AssessmentList {
     }
 
     /**
-     * Metoda setGrades obiektu typu AssessmentList przyjmuje jako argument indeks tablicy i ocenę studenta i wprowadza
-     * te dane w tablicę pola grades
-     * @param num indeks tablicy grades
-     * @param grade ocena wpisana do tablicy grades
+     * Metoda setGrades obiektu typu AssessmentList przyjmuje jako argument nazwisko studenta. Jeśli nazwisko jest w
+     * tablicy surnames na podstawie tablicy scores wpisywane są w tablice oceny z testów
+     * @param surname nazwisko studenta z pola surnames
      */
-    public void setGrades(int num, int grade) {
-        this.grades[num] = grade;
+    public void setGrades(String surname) {
+        int index = getIndexFromSurnames(surname);
+        if (index == -1) {
+            System.out.println("Nie ma studenta o takim nazwisku");
+        } else {
+            for (int i = 0; i < scores[index].length; i++) {
+                if (scores[index][i] >= 90) {
+                    grades[index][i] = 5;
+                } else if (scores[index][i] >= 80) {
+                    grades[index][i] = 4;
+                } else if (scores[index][i] >= 70) {
+                    grades[index][i] = 3;
+                } else if (scores[index][i] >= 60) {
+                    grades[index][i] = 2;
+                } else {
+                    grades[index][i] = 1;
+                }
+            }
+        }
     }
 
     /**
      * Metoda setScores przyjmuje jako argument nazwisko studenta, a następnie uzupełnia tablicę o właściwym indeksie
      * liczbą punktów zdobytych w testach
+     *
      * @param surname nazwisko studenta
      */
     public void setScores(String surname) {
@@ -111,6 +146,7 @@ public class AssessmentList {
 
     /**
      * Metoda displayAverage wyświetla średnią ilość punktów z testów studenta
+     *
      * @param surname nazwisko studenta
      */
     public void displayAverage(String surname) {
