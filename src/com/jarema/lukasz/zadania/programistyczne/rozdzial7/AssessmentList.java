@@ -21,7 +21,7 @@ package com.jarema.lukasz.zadania.programistyczne.rozdzial7;
 
 public class AssessmentList {
     private final String [] surnames = new String[5];
-    private final int [] grades = new int[5];
+    private final int [] grades = new int[4];
     private double [] [] scores = new double[5][4];
 
     /**
@@ -66,5 +66,53 @@ public class AssessmentList {
         this.grades[num] = grade;
     }
 
-    public void setScores()
+    /**
+     * Metoda setScores przyjmuje jako argument nazwisko studenta, a następnie uzupełnia tablicę o właściwym indeksie
+     * liczbą punktów zdobytych w testach
+     * @param surname nazwisko studenta
+     */
+    public void setScores(String surname) {
+        int index = getIndexFromSurnames(surname);
+        double score = 0.0;
+        if (index == -1) {
+            System.out.println("Nie ma studenta o takim nazwisku!");
+        } else {
+            for (int i = 0; i < scores[index].length; i++) {
+                do {
+                    System.out.print("Wprowadź liczbę punktów z testu numer " + (i + 1) + ": ");
+                } while (score < 0.0 || score > 100.00);
+            }
+        }
+    }
+
+    /**
+     * Metoda getAverage obiektu typu AssessmentList zwraca średnią liczbę punktów uzyskaną przez studenta z czterech
+     * testów
+     * @param surname nazwisko studenta
+     * @return średnia zdobytych punktów
+     */
+    public double getAverage(String surname) {
+        int index = getIndexFromSurnames(surname);
+        double average = -1.0;
+        if (index == -1) {
+            return average;
+        } else {
+            for (int i = 0; i < scores[index].length; i++) {
+                average += scores[index][i];
+            }
+        }
+        return average / 4.0;
+    }
+
+    /**
+     * Metoda displayAverage wyświetla średnią ilość punktów z testów studenta
+     * @param surname nazwisko studenta
+     */
+    public void displayAverage(String surname) {
+        if (getAverage(surname) == -1.0) {
+            System.out.println("Nie ma studenta o takim nazwisku");
+        } else {
+            System.out.println("Student " + surname + " uzyskał średnio: " + getAverage(surname) + " punktów.");
+        }
+    }
 }
