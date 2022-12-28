@@ -41,41 +41,42 @@ public class AverageNumberOfSteps {
             if (index <= 31) {
                 months[0] += scanner.nextInt();
                 index++;
-            } else if (index > 32 || index <= 59) {
+            } else if (index > 31 && index <= 59) {
                 months[1] += scanner.nextInt();
                 index++;
-            } else if (index > 59 || index <= 90) {
+            } else if (index > 59 && index <= 90) {
                 months[2] += scanner.nextInt();
                 index++;
-            } else if (index > 90 || index <= 120) {
+            } else if (index > 90 && index <= 120) {
                 months[3] += scanner.nextInt();
                 index++;
-            } else if (index > 120 || index <= 151) {
+            } else if (index > 120 && index <= 151) {
                 months[4] += scanner.nextInt();
                 index++;
-            } else if (index > 151 || index <= 181) {
+            } else if (index > 151 && index <= 181) {
                 months[5] += scanner.nextInt();
                 index++;
-            } else if (index > 181 || index <= 212) {
+            } else if (index > 181 && index <= 212) {
                 months[6] += scanner.nextInt();
                 index++;
-            } else if (index > 212 || index <= 243) {
+            } else if (index > 212 && index <= 243) {
                 months[7] += scanner.nextInt();
                 index++;
-            } else if (index > 243 || index <= 273) {
+            } else if (index > 243 && index <= 273) {
                 months[8] += scanner.nextInt();
                 index++;
-            } else if (index > 273 || index <= 304) {
+            } else if (index > 273 && index <= 304) {
                 months[9] += scanner.nextInt();
                 index++;
-            } else if (index > 304 || index <= 334) {
+            } else if (index > 304 && index <= 334) {
                 months[10] += scanner.nextInt();
                 index++;
-            } else if (index > 334 || index <= 365) {
+            } else if (index > 334 && index <= 365) {
                 months[11] += scanner.nextInt();
                 index++;
             } else {
                 System.out.println("Przekroczyłeś ilość dni w roku nieprzestępnym!");
+                break;
             }
         }
         scanner.close();
@@ -103,7 +104,8 @@ public class AverageNumberOfSteps {
     public void displayMonthsAverage() {
         setMonthsAverage();
         for (int i = 0; i < months.length; i++) {
-            System.out.println("Średnia kroków w miesiącu numer " + (i + 1) + " wyniosła: " + monthsAverage[i]);
+            System.out.printf("Średnia kroków w miesiącu numer %d wyniosła: %.2f", (i + 1), monthsAverage[i]);
+            System.out.println();
         }
     }
 }
