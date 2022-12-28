@@ -16,6 +16,7 @@ import java.util.Scanner;
 
 public class AverageNumberOfSteps {
     private int [] months = new int[12];
+    private double [] monthsAverage = new double[12];
 
     /**
      * Konstruktor bezargumentowy obiektu typu AverageOfSteps
@@ -33,7 +34,6 @@ public class AverageNumberOfSteps {
     }
 
     public void setMonths(String fileName) throws FileNotFoundException {
-        int steps;
         int index = 1;
         File file = new File(fileName);
         Scanner scanner = new Scanner(file);
@@ -44,12 +44,66 @@ public class AverageNumberOfSteps {
             } else if (index > 32 || index <= 59) {
                 months[1] += scanner.nextInt();
                 index++;
+            } else if (index > 59 || index <= 90) {
+                months[2] += scanner.nextInt();
+                index++;
+            } else if (index > 90 || index <= 120) {
+                months[3] += scanner.nextInt();
+                index++;
+            } else if (index > 120 || index <= 151) {
+                months[4] += scanner.nextInt();
+                index++;
+            } else if (index > 151 || index <= 181) {
+                months[5] += scanner.nextInt();
+                index++;
+            } else if (index > 181 || index <= 212) {
+                months[6] += scanner.nextInt();
+                index++;
+            } else if (index > 212 || index <= 243) {
+                months[7] += scanner.nextInt();
+                index++;
+            } else if (index > 243 || index <= 273) {
+                months[8] += scanner.nextInt();
+                index++;
+            } else if (index > 273 || index <= 304) {
+                months[9] += scanner.nextInt();
+                index++;
+            } else if (index > 304 || index <= 334) {
+                months[10] += scanner.nextInt();
+                index++;
+            } else if (index > 334 || index <= 365) {
+                months[11] += scanner.nextInt();
+                index++;
+            } else {
+                System.out.println("Przekroczyłeś ilość dni w roku nieprzestępnym!");
             }
         }
         scanner.close();
     }
 
+    public void setMonthsAverage() {
+        monthsAverage[0] = months[0] / 31.0;
+        monthsAverage[1] = months[1] / 28.0;
+        monthsAverage[2] = months[2] / 31.0;
+        monthsAverage[3] = months[3] / 30.0;
+        monthsAverage[4] = months[4] / 31.0;
+        monthsAverage[5] = months[5] / 30.0;
+        monthsAverage[6] = months[6] / 31.0;
+        monthsAverage[7] = months[7] / 31.0;
+        monthsAverage[8] = months[8] / 30.0;
+        monthsAverage[9] = months[9] / 31.0;
+        monthsAverage[10] = months[10] / 30.0;
+        monthsAverage[11] = months[11] / 31.0;
+    }
+
     public int [] getMonths() {
         return months;
+    }
+
+    public void displayMonthsAverage() {
+        setMonthsAverage();
+        for (int i = 0; i < months.length; i++) {
+            System.out.println("Średnia kroków w miesiącu numer " + (i + 1) + " wyniosła: " + monthsAverage[i]);
+        }
     }
 }
