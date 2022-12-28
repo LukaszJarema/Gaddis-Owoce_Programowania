@@ -1,5 +1,9 @@
 package com.jarema.lukasz.zadania.programistyczne.rozdzial7;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 /**
  * Średnia liczba zrobionych kroków.
  * Personal Fitness Tracker to urządzenie ubieralne, które śledzi aktywność fizyczną, liczbę spalonych kalorii, puls,
@@ -11,13 +15,41 @@ package com.jarema.lukasz.zadania.programistyczne.rozdzial7;
  */
 
 public class AverageNumberOfSteps {
-    private int [] MONTHS = new int[12];
+    private int [] months = new int[12];
 
-    public void setMONTHS(int [] stepsInMonths) {
-        MONTHS = stepsInMonths;
+    /**
+     * Konstruktor bezargumentowy obiektu typu AverageOfSteps
+     */
+    public AverageNumberOfSteps() {
+
     }
 
-    public int [] getMONTHS() {
-        return MONTHS;
+    public AverageNumberOfSteps(int [] table) {
+        months = table;
+    }
+
+    public void setMonths(int [] stepsInMonths) {
+        months = stepsInMonths;
+    }
+
+    public void setMonths(String fileName) throws FileNotFoundException {
+        int steps;
+        int index = 1;
+        File file = new File(fileName);
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNext()) {
+            if (index <= 31) {
+                months[0] += scanner.nextInt();
+                index++;
+            } else if (index > 32 || index <= 59) {
+                months[1] += scanner.nextInt();
+                index++;
+            }
+        }
+        scanner.close();
+    }
+
+    public int [] getMonths() {
+        return months;
     }
 }
