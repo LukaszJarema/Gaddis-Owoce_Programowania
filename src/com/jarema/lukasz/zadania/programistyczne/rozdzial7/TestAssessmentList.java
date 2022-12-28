@@ -13,18 +13,24 @@ public class TestAssessmentList {
         }
 
         for (int i = 0; i < assessmentList.getSurnamesLength(); i++) {
-            for (int j = 0; j < assessmentList.getSurnamesLength(); j++) {
-                String surname = assessmentList.getSurname(i);
-                int index = assessmentList.getIndexFromSurnames(surname);
-                double score = -1.0;
-                do {
-                    System.out.print("Podaj liczbę punktów z testu numer "  + (j + 1) + " studenta " +
-                assessmentList.getSurname(index) + ": ");
-                    assessmentList.setScores(surname);
-                } while (!(score < 0.0 || score >= 100.0));
-            }
+            String surname = assessmentList.getSurname(i);
+            int index = assessmentList.getIndexFromSurnames(surname);
+            double score = -1.0;
+            do {
+                System.out.println("Podaj liczbę punktów z testów studenta " +
+                        assessmentList.getSurname(index) + ": ");
+                assessmentList.setScores(surname);
+            } while (!(score < 0.0 || score >= 100.0));
         }
 
+        for (int i = 0; i < assessmentList.getSurnamesLength(); i++) {
+            String surname = assessmentList.getSurname(i);
+            assessmentList.setGrades(surname);
+        }
 
+        for (int i = 0; i < assessmentList.getSurnamesLength(); i++) {
+            String surname = assessmentList.getSurname(i);
+            System.out.println("Średnia studenta " + surname + " wynosi: " + assessmentList.getAverage(surname));
+        }
     }
 }
