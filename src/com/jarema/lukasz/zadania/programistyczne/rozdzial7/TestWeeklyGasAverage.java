@@ -8,7 +8,7 @@ public class TestWeeklyGasAverage {
         weeklyGasAverages.setWeeklyGasAverage("1994_Weekly_Gas_Averages.txt");
         weeklyGasAverages.maximalGasAverageInYear();
         weeklyGasAverages.minimalGasAverageInYear();
-        weeklyGasAverages.monthlyGasAverage();
-        weeklyGasAverages.monthlyGasAverageFiles();
+        weeklyGasAverages.displayMonthlyAverage(weeklyGasAverages.monthlyGasAverage());
+        weeklyGasAverages.monthlyGasAverageFiles(weeklyGasAverages.monthlyGasAverage());
     }
 }
