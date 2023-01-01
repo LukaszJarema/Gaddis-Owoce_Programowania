@@ -103,4 +103,10 @@ public class Question {
     public void setCorrectAnswer(String correctAnswer) {
         this.correctAnswer = correctAnswer;
     }
+
+    public String questionToString() {
+        String question = getQuestion() + "\n" + getAnswer1() + "\n" + getAnswer2() + "\n" + getAnswer3() + "\n" +
+                getAnswer4();
+        return question;
+    }
 }
