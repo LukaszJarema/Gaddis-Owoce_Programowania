@@ -31,6 +31,15 @@ public class RoomDimension {
     }
 
     /**
+     * Konstruktor kopiujący obiektu typu RoomDimension
+     * @param rd
+     */
+    public RoomDimension(RoomDimension rd) {
+        length = rd.length;
+        width = rd.width;
+    }
+
+    /**
      * Metoda getArea obiektu typu RoomDimension zwraca pole pomieszczenia przez przemnożenie długości przez szerokość
      * @return pole pomieszczenia
      */
