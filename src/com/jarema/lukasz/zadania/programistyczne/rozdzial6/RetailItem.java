@@ -33,6 +33,12 @@ public class RetailItem {
         price = itemPrice;
     }
 
+    public RetailItem(RetailItem retailItem) {
+        description = retailItem.description;
+        unitsOnHand = retailItem.unitsOnHand;
+        price = retailItem.price;
+    }
+
     //mutatory
 
     /**
