@@ -1,0 +1,6 @@
+PARAGON
+Cena za sztukę: 159.95
+Sztuk: 5
+Podsuma: 799.75
+Podatek: 183.9425
+Suma: 983.6925

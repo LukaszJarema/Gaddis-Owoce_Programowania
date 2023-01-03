@@ -14,6 +14,13 @@ import com.jarema.lukasz.zadania.programistyczne.rozdzial6.RetailItem;
  * - Metodę getTotal, zwracającą łączną kwotę do zapłaty (czyli podsumę plus podatek).
  * Zademonstruj działanie tej klasy w programie, który wyświetla prośbę o podanie liczby kupowanych sztuk, a następnie
  * wyświetla podsumę, wartość podatku i łączną kwotę do zapłaty.
+ * - Utwórz plik zwierający paragon. Plik powinien wyglądać jak poniżej:
+ * PARAGON
+ * Cena za sztukę: 10,00
+ * Sztuk: 5
+ * Podsuma: 50,00
+ * Podatek: 11,50
+ * Suma: 61,50
  */
 
 public class CashRegister {
@@ -44,7 +51,7 @@ public class CashRegister {
      * Metoda getTax obiektu typu CashRegister zwraca wartość podatku zakupów
      * @return 23% podatku od zakupów
      */
-    public double geTax() {
+    public double getTax() {
         double tax = getSubtotal() * 0.23;
         return tax;
     }
@@ -54,7 +61,7 @@ public class CashRegister {
      * @return kwota brutto zakupów
      */
     public double getTotal() {
-        return getSubtotal() + geTax();
+        return getSubtotal() + getTax();
     }
 
     public int getNumberOfPices() {
@@ -66,8 +73,12 @@ public class CashRegister {
      * @return
      */
     public String toString() {
-        String str = "Kupiłeś: " + product.getDescription() + " za łączną kwotę: " + getTotal() + " złotych.\n" +
-                "Cena netto: " + getSubtotal() + "\nPodatek: " + geTax();
+        String str = "PARAGON\n" +
+                "Cena za sztukę: " + product.getPrice() + "\n" +
+                "Sztuk: " + numberOfPices + "\n" +
+                "Podsuma: " + getSubtotal() + "\n" +
+                "Podatek: " + getTax() + "\n" +
+                "Suma: " + getTotal();
         return str;
     }
 }

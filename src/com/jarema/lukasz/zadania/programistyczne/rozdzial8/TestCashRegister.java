@@ -2,10 +2,12 @@ package com.jarema.lukasz.zadania.programistyczne.rozdzial8;
 
 import com.jarema.lukasz.zadania.programistyczne.rozdzial6.RetailItem;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class TestCashRegister {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
         RetailItem retailItem = new RetailItem("Kurtka", 12, 159.95);
         int numberOfPices = 0;
@@ -17,7 +19,10 @@ public class TestCashRegister {
 
         if (numberOfPices > retailItem.getUnitsOnHand())
             System.out.print("Nie mam tylu produktów na stanie. Posiadam: " + retailItem.getUnitsOnHand());
-        else
-            System.out.println(cashRegister);
+        else {
+            PrintWriter printWriter = new PrintWriter("paragon.txt");
+            printWriter.println(cashRegister);
+            printWriter.close();
+        }
     }
 }
