@@ -24,6 +24,11 @@ public class Player {
         score = 50;
     }
 
+    public Player(String name, int score) {
+        this.name = name;
+        this.score = score;
+    }
+
     //Akcesory
     public String getName() {
         return name;
