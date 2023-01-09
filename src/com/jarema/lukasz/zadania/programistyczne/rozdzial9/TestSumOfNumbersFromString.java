@@ -7,6 +7,6 @@ public class TestSumOfNumbersFromString {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Podaj ciąg cyfr rozdzielonych znakiem ',', które chcesz do siebie dodać: ");
         SumOfNumbersFromString sumOfNumbersFromString = new SumOfNumbersFromString(scanner.nextLine());
-        System.out.println(sumOfNumbersFromString.getSumOfNumbers());
+        System.out.println("Suma liczb całkowitych w podanym ciągu znaków: " + sumOfNumbersFromString.getSumOfNumbers());
     }
 }

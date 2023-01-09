@@ -37,7 +37,7 @@ public class SumOfNumbersFromString {
             try {
                 sum += Integer.parseInt(s);
             } catch (NumberFormatException e) {
-
+                System.out.println(s + " nie jest liczbą całkowitą");
             }
         }
         return sum;
