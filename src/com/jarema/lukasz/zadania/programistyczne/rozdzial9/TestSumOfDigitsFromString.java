@@ -8,5 +8,7 @@ public class TestSumOfDigitsFromString {
         System.out.print("Podaj ciąg znaków z którego chcesz obliczyć sumę cyfr: ");
         SumOfDigitsFromString sumOfDigitsFromString = new SumOfDigitsFromString(scanner.nextLine());
         System.out.println("Suma cyfr w podanym ciągu znaków: " + sumOfDigitsFromString.getSumOfDigits());
+        System.out.println("Największa cyfra w podanym ciągu znaków: " + sumOfDigitsFromString.getHighestOfDigits());
+        System.out.println("Najmniejsza cyfra w podanym ciągu znaków: " + sumOfDigitsFromString.getLowestOfDigits());
     }
 }

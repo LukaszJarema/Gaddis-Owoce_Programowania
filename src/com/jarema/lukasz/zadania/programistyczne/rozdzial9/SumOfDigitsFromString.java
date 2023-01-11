@@ -39,4 +39,32 @@ public class SumOfDigitsFromString {
         }
         return sum;
     }
+
+    /**
+     * Metoda getHighestOfDigits zwraca największą wartość liczbową z ciągu znaków z pola string
+     * @return największą cyfrę z ciągu znaków pola string
+     */
+    public int getHighestOfDigits() {
+        int highest = Integer.MIN_VALUE;
+        char [] array = string.toCharArray();
+        for (char ch : array) {
+            if (Character.isDigit(ch) && Integer.parseInt(String.valueOf(ch)) > highest)
+                highest = Integer.parseInt(String.valueOf(ch));
+        }
+        return highest;
+    }
+
+    /**
+     * Metoda getLowestOfDigits zwraca najmniejszą wartość liczbową z ciągu znaków z pola string
+     * @return najmniejsza cyfra z ciągu znaków z pola string
+     */
+    public int getLowestOfDigits() {
+        int lowest = Integer.MAX_VALUE;
+        char [] array = string.toCharArray();
+        for (char ch : array) {
+            if (Character.isDigit(ch) && Integer.parseInt(String.valueOf(ch)) < lowest)
+                lowest = Integer.parseInt(String.valueOf(ch));
+        }
+        return lowest;
+    }
 }
