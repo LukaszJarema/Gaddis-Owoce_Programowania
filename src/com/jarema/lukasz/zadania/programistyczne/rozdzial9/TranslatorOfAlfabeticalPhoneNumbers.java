@@ -46,6 +46,10 @@ public class TranslatorOfAlfabeticalPhoneNumbers {
         this.phoneNumber = phoneNumber;
     }
 
+    /**
+     * Metoda translatePhoneNumber sprawdza prawidłowość podanego numeru telefonu pod względem jego formatu oraz
+     * długości i jeśli jest poprawna zamienia go na numer w wersji liczbowej. Jeśli nie wyświetla stosowny komunikat
+     */
     public void translatePhoneNumber() {
         boolean flag = true;
         phoneNumber = phoneNumber.toUpperCase();
@@ -68,21 +72,21 @@ public class TranslatorOfAlfabeticalPhoneNumbers {
             else {
                 for (int i = 0; i < array.length; i++) {
                     if (array[i] >= 'A' && array[i] <= 'C')
-                        sb.setCharAt(i, (char) 2);
+                        sb.append(2);
                     else if (array[i] >= 'D' && array[i] <= 'F')
-                        sb.setCharAt(i, (char) 3);
+                        sb.append(3);
                     else if (array[i] >= 'G' && array[i] <= 'I')
-                        sb.setCharAt(i, (char) 4);
+                        sb.append(4);
                     else if (array[i] >= 'J' && array[i] <= 'L')
-                        sb.setCharAt(i, (char) 5);
+                        sb.append(5);
                     else if (array[i] >= 'M' && array[i] <= 'O')
-                        sb.setCharAt(i, (char) 6);
+                        sb.append(6);
                     else if (array[i] >= 'P' && array[i] <= 'S')
-                        sb.setCharAt(i, (char) 7);
+                        sb.append(7);
                     else if (array[i] >= 'T' && array[i] <= 'V')
-                        sb.setCharAt(i, (char) 8);
+                        sb.append(8);
                     else if (array[i] >= 'W' && array[i] <= 'Z')
-                        sb.setCharAt(i, (char) 9);
+                        sb.append(9);
                     else
                         sb.append(array[i]);
                 }
