@@ -39,7 +39,6 @@ public class WordSeparator {
                 sb.append(Character.toLowerCase(array[i]));
         }
         String str = sb.toString();
-        str = (str.toUpperCase().charAt(0)) + str.substring(1, str.length());
-        return str;
+        return str = (str.toUpperCase().charAt(0)) + str.substring(1, str.length());
     }
 }
