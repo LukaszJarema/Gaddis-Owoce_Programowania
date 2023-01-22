@@ -115,7 +115,6 @@ public class GasPrices {
     /**
      * Metoda lowestAndHighestPriceInYear przyjmuje jako argument rok i wyświetla na konsoli najniższą i najwyższą cenę
      * paliwa w tym roku
-     *
      * @param year rok
      * @throws IOException Input / Output Exception
      */
@@ -183,6 +182,11 @@ public class GasPrices {
         return pw;
     }
 
+    /**
+     * Metoda fromLowestToHighest sortuje tablicę według cen od najniższej do najwyższej
+     * @return tablica według posortowanych cen od najniższej do najwyższej
+     * @throws IOException Input / Output Exception
+     */
     private double[][] fromLowestToHighest() throws IOException {
         double array[][] = setDataFromFileToArray();
         double lowest = Double.MAX_VALUE;
@@ -205,6 +209,12 @@ public class GasPrices {
         return sortArray;
     }
 
+
+    /**
+     * Metoda fileFromLowestToHighest zwraca plik z datą i ceną paliwa od najniższej ceny do najwyższej
+     * @return plik z datą i ceną paliwa od najniższej ceny do najwyższej
+     * @throws IOException Input / Output Exception
+     */
     public PrintWriter fileFromLowestToHighest() throws IOException {
         PrintWriter pw = new PrintWriter("FromLowestToHighest.txt");
         for (int i = 0; i < fromLowestToHighest().length; i++) {
