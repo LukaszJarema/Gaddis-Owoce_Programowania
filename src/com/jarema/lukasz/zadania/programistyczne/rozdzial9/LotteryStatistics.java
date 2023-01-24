@@ -22,7 +22,6 @@ import java.util.Scanner;
  * PowerBall z danego dnia.
  * Napisz jeden lub kilka programów, które operują na tym pliku i wykonują następujące działania:
  * - wyświetlają 10 najczęściej losowanych liczb uporządkowanych zgodnie z częstotliwością ich wystąpień,
- * //TODO
  * - wyświetlają 10 najrzadziej losowanych liczb uporządkowanych zgodnie z częstotliwością ich wystąpień,
  * //TODO
  * - wyświetlają 10 liczb, które nie pojawiły się od najdłuższego czasu (uporządkowanych od tej wylosowanej po raz
@@ -42,35 +41,67 @@ public class LotteryStatistics {
 
     }
 
+    /**
+     * Metoda tenMostCommonDigitsInDescendingOrder zwraca tablicę dziesięciu najczęściej losowanych liczb w loterii
+     * @return tablica dziesięciu najczęściej losowanych liczb w loterii
+     * @throws IOException Input / Output Exception
+     */
     public int [] tenMostCommonDigitsInDescendingOrder() throws IOException {
-        ArrayList<Integer> list = new ArrayList<>();
-        int array[] = new int[69];
-        int mostCommon[] = new int[10];
-        for (int i = 0; i < listOfNumbersFromLottery().size(); i++) {
-            for (int j = 1; j <= 69; j++) {
-                if (listOfNumbersFromLottery().get(i) == j) {
-                    array[(j - 1)]++;
-                }
+        int [] mostCommon = new int[10];
+        int [] howManyTimes = new int[69];
+
+        for (int i = 0; i < howManyTimes.length; i++) {
+            for (int j = 0; j < listOfNumbersFromLottery().size(); j++) {
+                if (listOfNumbersFromLottery().get(j) == (i + 1))
+                    howManyTimes[i]++;
             }
         }
-        for (int i = 0; i < array.length; i++)
-            list.add(array[i]);
 
         int max = -1;
         int index = -1;
-        for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < mostCommon.length; j++) {
-                if (list.get(i) > max) {
-                    index = i;
-                    max = i++;
-                    mostCommon[j] = max;
+        for (int i = 0; i < mostCommon.length; i++) {
+            for (int j = 0; j < howManyTimes.length; j++) {
+                if (howManyTimes[j] > max) {
+                    max = howManyTimes[j];
+                    index = j;
+                    mostCommon[i] = (index + 1);
                 }
             }
-            list.set(index, 0);
+            howManyTimes[index] = Integer.MIN_VALUE;
             max = -1;
             index = -1;
         }
+
         return mostCommon;
+    }
+
+    public int [] tenLeastCommonDigitsInAscendingOrder() throws IOException {
+        int [] leastCommon = new int[10];
+        int [] howManyTimes = new int[69];
+
+        for (int i = 0; i < howManyTimes.length; i++) {
+            for (int j = 0; j < listOfNumbersFromLottery().size(); j++) {
+                if (listOfNumbersFromLottery().get(j) == (i + 1))
+                    howManyTimes[i]++;
+            }
+        }
+
+        int min = 70;
+        int index = -1;
+        for (int i = 0; i < leastCommon.length; i++) {
+            for (int j = 0; j < howManyTimes.length; j++) {
+                if (howManyTimes[j] < min) {
+                    min = howManyTimes[j];
+                    index = j;
+                    leastCommon[i] = (index + 1);
+                }
+            }
+            howManyTimes[index] = Integer.MAX_VALUE;
+            min = 70;
+            index = -1;
+        }
+
+        return leastCommon;
     }
 
     /**
