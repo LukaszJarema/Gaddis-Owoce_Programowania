@@ -24,7 +24,7 @@ package com.jarema.lukasz.zadania.programistyczne.rozdzial10;
  * Zademonstruj działanie tej klasy w programie.
  */
 
-public class CourseGrades {
+public class CourseGrades implements Analyzable {
     private GradedActivity [] grades = new GradedActivity[4];
 
     /**
@@ -76,5 +76,51 @@ public class CourseGrades {
                 grades[1].getScore() + "\n3. Ocena z eseju: " + grades[2].getGrade() + " Wynik punktowy: " +
                 grades[2].getScore() + "\n4. Ocena z egzaminu końcowego: " + grades[3].getGrade() + " Wynik punktowy: "
                 + grades[3].getScore();
+    }
+
+    /**
+     * Metoda getAverage zwraca średnią wartość punktową z pola tablicowego grades
+     * @return średnia wartość punktowa
+     */
+    @Override
+    public double getAverage() {
+        double points = 0;
+        for (int i = 0; i < grades.length; i++)
+            points += grades[i].getScore();
+        return points / grades.length;
+    }
+
+    /**
+     * Metoda getHighest zwraca najwyższy wynik punktowy z tablicy grades
+     * @return najwyższy wynik punktowy
+     */
+    @Override
+    public GradedActivity getHighest() {
+        double max = grades[0].getScore();
+        GradedActivity gradedActivity = grades[0];
+        for (int i = 1; i < grades.length; i++) {
+            if (grades[i].getScore() > max) {
+                max = grades[i].getScore();
+                gradedActivity = grades[i];
+            }
+        }
+        return gradedActivity;
+    }
+
+    /**
+     * Metoda getLowest zwraca najniższy wynik punktowy z tablic grades
+     * @return najniższy wynik punktowy
+     */
+    @Override
+    public GradedActivity getLowest() {
+        double min = grades[0].getScore();
+        GradedActivity gradedActivity = grades[0];
+        for (int i = 1; i < grades.length; i++) {
+            if (grades[i].getScore() < min) {
+                min = grades[i].getScore();
+                gradedActivity = grades[i];
+            }
+        }
+        return gradedActivity;
     }
 }

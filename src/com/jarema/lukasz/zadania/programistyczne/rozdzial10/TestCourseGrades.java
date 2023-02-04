@@ -57,5 +57,9 @@ public class TestCourseGrades {
         courseGrades.setFinalExam(finalExam);
 
         System.out.println(courseGrades.toString());
+
+        System.out.println("Średni wynik punktowy: " + courseGrades.getAverage());
+        System.out.println("Najwyższy wynik punktowy: " + courseGrades.getHighest());
+        System.out.println("Najniższy wynik punktowy: " + courseGrades.getLowest());
     }
 }
