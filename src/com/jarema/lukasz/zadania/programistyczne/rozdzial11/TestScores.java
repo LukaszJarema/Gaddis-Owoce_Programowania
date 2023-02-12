@@ -23,17 +23,16 @@ public class TestScores {
      * Metoda getAverage zwraca średnią wartość punktów z testu
      * @return średnia wartość punktów z testu
      */
-    public double getAverage() {
-        int counter = 0;
+    public double getAverage() throws InvalidTestScore {
         int points = 0;
         for (int i = 0; i < scores.length; i++) {
             if (scores[i] < 0 || scores[i] > 100)
-                throw new IllegalArgumentException("Wynik mniejszy od 0 lub większy od 100");
+                //throw new IllegalArgumentException("Wynik mniejszy od 0 lub większy od 100");
+                throw new InvalidTestScore(scores[i]);
             else {
-                scores[i] += points;
-                counter++;
+                points += scores[i];
             }
         }
-        return points / counter;
+        return points / scores.length;
     }
 }
